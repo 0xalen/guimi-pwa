@@ -1,0 +1,21 @@
+{
+  "short_name": "GuIMI",
+  "name": "Guía Interactiva del museo de informática",
+  "icons": [
+    {
+      "src": "/images/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/guimi/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/guimi/",
+  "theme_color": "#3367D6"
+}
