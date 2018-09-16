@@ -7,7 +7,11 @@
     <title>"GuIMI: Guía Interactiva del Museo de Informática"</title>
     <link rel="stylesheet" type="text/css" href="styles/inline.css">
 
-    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" type="text/css" href="styles/video-full.css">
+
+<link rel="manifest" href="/manifest.json">
+
+
 </head>
 <body>
 
@@ -17,9 +21,19 @@
       <button id="butAdd" class="headerButton" aria-label="Add"></button>
     </header>
 
-    <main class="main">
-        <input type="file" accept="video/*;capture=camcorder">
-        <!--<input type="file" accept="image/*;capture=camera"> -->
+    <main class="main">       
+        <video autoplay class="video"></video>
+
+        <script>
+            const constraints = {
+              video: true
+            };
+            const video = document.querySelector('video');
+        
+            navigator.mediaDevices.getUserMedia(constraints).
+            then((stream) => {video.srcObject = stream});
+        </script>
+
     </main>
 
     <div class="temp-acronym">
