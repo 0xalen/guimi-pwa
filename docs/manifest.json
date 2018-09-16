@@ -16,6 +16,7 @@
   "start_url": "/guimi/?source=pwa",
   "background_color": "#3367D6",
   "display": "standalone",
+  "orientation": "landscape",
   "scope": "/guimi/",
   "theme_color": "#3367D6"
 }
