@@ -17,14 +17,16 @@
     </header>
 
     <main class="main">
-        <input type="file" accept="image/*">        
+        <input type="file" accept="image/* capture="camera"">        
     </main>
 
-    <button type="button"
-    onclick="document.getElementById('nombre').innerHTML = 'Guía Interactiva del Museo de Informática'">
-    Ver acrónimo</button>
+    <div class="temp-acronym">
+        <button type="button"
+        onclick="document.getElementById('nombre').innerHTML = 'Guía Interactiva del Museo de Informática'">
+        Ver acrónimo</button>
 
-    <p id="nombre">¿GuIMI?</p>
+        <p id="nombre">¿GuIMI?</p>
+    </div>
 
 </body>
 </html> 
