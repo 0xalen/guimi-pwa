@@ -13,7 +13,7 @@
     <script type="text/javascript" src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 	<!-- Incluir arjs para a-frame -->
 	<script type="text/javascript" src="https://raw.githubusercontent.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.js"></script>
-	 <script>ARjs.Context.baseURL = 'https://github.com/jeromeetienne/ar.js/tree/master/three.js/'</script>
+	 <script>THREEXjs.Context.baseURL = 'https://github.com/jeromeetienne/ar.js/tree/master/three.js/'</script>
 </head>
 <body> <!-- style='margin : 0px; overflow: hidden;'> -->
 
@@ -23,6 +23,9 @@
     </header>
     
     <main class="main">       
+    	<video autoplay class="video"></video>
+        <script src="scripts/app.js" async></script>
+
 	        <!-- Define your 3d scene and enabled ar.js -->
         <a-scene embedded arjs='trackingMethod: best;'>
 
@@ -41,13 +44,10 @@
 		        <a-camera-static/>
 		</a-scene>
 
-<!--	<video autoplay class="video"></video>
-    <script src="scripts/app.js" async></script> -->
-
     </main>
 
     <div align="center">
-         <button type="button" onclick="document.getElementById('nombre').innerHTML = 'Guía Interactiva del Museo de Informática'">Ver acrónimo</button>
+         <button type="button" onclick="document.getElementById('nombre').innerHTML = 'Guía Interactiva del Museo de Informática'">¿Qué es GuIMI?</button>
         <p id="nombre">¿GuIMI?</p>
     </div>
 
