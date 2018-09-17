@@ -23,15 +23,7 @@
     <main class="main">       
         <video autoplay class="video"></video>
 
-        <script>
-            const constraints = {
-              video: true
-            };
-            const video = document.querySelector('video');
-        
-            navigator.mediaDevices.getUserMedia(constraints).
-            then((stream) => {video.srcObject = stream});
-        </script>
+        <script src="scripts/app.js" async></script>
 
     </main>
 
