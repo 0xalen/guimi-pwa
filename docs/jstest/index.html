@@ -19,7 +19,30 @@
             }
         }
 
-        var person1 = new Person("Charlie", 23);
+        function Human(name, age) {
+            var n = name;
+            var a = age;
+           
+            this.getName = function() {
+                return n;
+            }
+            this.setName = function(name) {
+                n = name;
+            }   
+            this.getAge = function() {
+                return a;
+            }       
+            this.hello = function (comment) {
+                var show = "Name: " + this.getName() + 
+                            "</br>Age: " + this.getAge() +
+                            "</br>Comment: " + comment;
+               return show;
+            }
+        }
+
+        var person1 = new Human("Charlie", 23);
+
+        person1.setName("Echo Charles");
         document.getElementById("test").innerHTML = "" + person1.hello("Lalala");
 
     </script>
