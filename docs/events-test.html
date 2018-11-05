@@ -29,6 +29,9 @@
     </script>
 </head>
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+        <p id="markerEventTest"></p>
+</div>
 	    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
             <a-assets>
                 <img id="transpImage" src="images/icons/team-cube.png">
@@ -59,6 +62,5 @@
 		    <a-entity camera></a-entity>
 	    </a-scene>
 
-        <p id="markerEventTest" style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'></p>
 </body>
 </html>
