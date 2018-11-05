@@ -26,7 +26,7 @@
     </div>
 
     <div id="mainScene" class="main">
-        <a-scene embedded arjs="debugUIEnabled: false;"> <!-- ="sourceType: webcam;">  detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> -->
+        <a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
             <!-- Content-->
 		        <a-assets>
             		<img id="transpImage" src="images/icons/team-cube.png">
@@ -34,12 +34,12 @@
 		        <a-image width="1" height="1" src="#transpImage">
 
 		        <!-- Default marker -->
-                  <a-marker-camera preset="hiro"></a-marker-camera>
+                 <a-marker preset="hiro" id='marker-hiro' registerevents></a-marker>
 
 		        <!-- Custom marker -->
-		        <a-marker-camera id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt"> <!-- registerevents> -->
+		        <a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
 			        <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
-            </a-marker-camera>
+                </a-marker>
 
             <a-entity camera></a-entity>
         </a-scene>
