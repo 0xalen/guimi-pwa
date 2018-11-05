@@ -14,12 +14,14 @@
 				        console.log('markerFound', markerId);
 		                 // Marker found
                         document.getElementById("markerEventTest").innerHTML = "Marker found: " + markerId;
+                        alert("Marker found: " + markerId");
 	                });
 			        marker.addEventListener('markerLost', function() {
 				        var markerId = marker.id;
 				        console.log('markerLost', markerId);
 				        // Marker lost
                         document.getElementById("markerEventTest").innerHTML = "Marker Lost: " + markerId;
+                        alert("Marker found: " + markerId");
 			        });
 		        }
 	        });
