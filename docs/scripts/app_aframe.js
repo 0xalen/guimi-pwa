@@ -19,23 +19,24 @@
     ***********************************************************/
 
     AFRAME.registerComponent('registerevents', {
-        init: function() {
-            var marker = this.el;
-            marker.setAttribute('emitevents', 'true');
-            marker.addEventListener('markerFound', function() {
-                var markerID = marker.id;
-                console.log('markerFound', markerId);
-                // Cuando se encuentra un marcador
-                openOptionsMenu(markerID);
-            });
-            marker.addEventListener('markerLost', function() {
-                var markerId = marker.id;
-                console.log('markerLost', markerId);
-                // Cuando se pierde un marcador
-                closeOptionsMenu();
-            });
-        }
-    });
+		init: function () {
+			var marker = this.el;
+			marker.addEventListener('markerFound', function() {
+				var markerId = marker.id;
+				console.log('markerFound', markerId);
+		         // Cuando se encuentra un marcador
+                //openOptionsMenu(markerID);
+                document.getElementById("markerEventTest").innerHTML = "Marker found!!!";
+	        });
+			marker.addEventListener('markerLost', function() {
+				var markerId = marker.id;
+				console.log('markerLost', markerId);
+				// Cuando se pierde un marcador
+                //closeOptionsMenu();
+                document.getElementById("markerEventTest").innerHTML = "Marker Lost";
+			});
+		}
+	});
 
     /**********************************************************
     *   Control

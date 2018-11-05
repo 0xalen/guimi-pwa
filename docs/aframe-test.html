@@ -21,6 +21,10 @@
         <script src="visitante/scripts/app.js" async></script>
     </main>
 
+    <div>
+        <p id="markerEventTest"></p>
+    </div>
+
     <div id="mainScene" class="main">
         <a-scene embedded arjs="debugUIEnabled: false;"> <!-- ="sourceType: webcam;">  detectionMode: mono_and_matrix; matrixCodeType: 3x3;"> -->
             <!-- Content-->
@@ -33,7 +37,7 @@
                   <a-marker-camera preset="hiro"></a-marker-camera>
 
 		        <!-- Custom marker -->
-		        <a-marker-camera id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt">
+		        <a-marker-camera id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
 			        <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
             </a-marker-camera>
 
