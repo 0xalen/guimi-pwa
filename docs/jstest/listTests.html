@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript test list</h2>
+
+<p>Se crea objeto, lista de objeto, y se evalua el valor que devuelve la lista vacía</p>
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+<script>
+
+function Person(n) {
+	var name = n;
+    
+    this.setName = function(n) {
+    	name = n
+    }
+    this.getName = function() {
+    	return name;
+    }
+}
+
+function TestList() {
+	var people = [new Person("Lala"), new Person("Lolo")];
+    
+    this.getLength = function() {
+    	return people.length;
+    }
+}
+
+function checkLoaded(test) {
+	return (test.getLength() === 0) ? true:false;
+}
+
+var test = new TestList();
+v = checkLoaded(test);
+q = test.getLength();
+document.getElementById("demo").innerHTML = v;
+document.getElementById("demo2").innerHTML = q;
+</script>
+
+</body>
+</html> 
+
