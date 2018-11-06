@@ -1,43 +1,89 @@
 <!DOCTYPE html>
-<html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible">
-    <link rel="canonical" href="https://0xalen.github.io/guimi-pwa/docs">
-    <meta name=viewport" content="width=device-width, initial-scale=1.0">
     <title>"GuIMI: Guía Interactiva del Museo de Informática"</title>
 
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+    <script>
+	     AFRAME.registerComponent('registerevents', {
+		        init: function () {
+			        var marker = this.el;
+			        marker.addEventListener('markerFound', function() {
+				        var markerId = marker.id;
+				        console.log('markerFound', markerId);
+		                 // Marker found
+                        document.getElementById("markerEventTest").innerHTML = "Marker found: " + markerId;
+                        alert("Marker found: " + markerId");
+	                });
+			        marker.addEventListener('markerLost', function() {
+				        var markerId = marker.id;
+				        console.log('markerLost', markerId);
+				        // Marker lost
+                        document.getElementById("markerEventTest").innerHTML = "Marker Lost: " + markerId;
+                        alert("Marker found: " + markerId");
+			        });
+		        }
+	        });
 
+        // Agregar elementos de A-FRAME mediante el API de DOM
+        var sceneEl = document.querySelector('a-scene')
+
+        AFRAME.registerComponent('do-something-once-loaded', {
+          init: function () {
+            console.log('MarkerLoaded');
+          }
+        });
+
+        var entityEl = document.createElement('a-marker');
+        entityEl.setAttribute('do-something-once-loaded', '');
+        entityEl.setAttribute('', {
+                //primitive: 'box',
+                position: "0 1 0",
+                rotation: "-90 0 0",
+                width: 1,
+                height: 1
+            });
+
+        sceneEl.appendChild(entityEl);
+
+        //entityEl.parentNode.removeChild(entityEl);
+
+    </script>
 </head>
-<body> <!-- style='margin: 0px; overflow: hidden;'> <!-- onload="loadMarkers()"> -->
-	<main class="main">
-        <script src="scripts/app.js" async></script>
-    </main>
-
-    <div>
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
         <p id="markerEventTest"></p>
-    </div>
+</div>
+	    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+            <a-assets>
+                <img id="transpImage" src="images/icons/team-cube.png">
+            </a-assets>
+            <a-image width="1" height="1" src="#transpImage">
 
-    <div id="mainScene" class="main">
-        <a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-            <!-- Content-->
-		        <a-assets>
-            		<img id="transpImage" src="images/icons/team-cube.png">
-		        </a-assets>
-		        <a-image width="1" height="1" src="#transpImage">
+		    <a-marker preset='hiro' id='marker-hiro' registerevents>
+			    <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+				    <a-torus-knot radius='0.26' radius-tubular='0.05'>
+					    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				    </a-torus-knot>
+			    </a-box>
+		    </a-marker>
 
-		        <!-- Default marker -->
-                 <a-marker preset="hiro" id='marker-hiro' registerevents></a-marker>
+            <!-- Custom marker
+	        <a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
+	            <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
+            </a-marker> -->
 
-		        <!-- Custom marker -->
-		        <a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
-			        <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
-                </a-marker>
+	        <a-marker type='barcode' value='5' id='marker-barcode-5'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+            </a-marker>
 
-            <a-entity camera></a-entity>
-        </a-scene>
-    </div>
+		    <a-entity camera></a-entity>
+	    </a-scene>
+
 </body>
-</html> 
+</html>
