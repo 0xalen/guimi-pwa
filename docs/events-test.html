@@ -27,21 +27,21 @@
                 }
             });
             */
-        var m = document.querySelector("a-marker")
-        m.addEventListener("markerFound", (e)=>{
+        var m = document.querySelector("a-marker");
+        m.addEventListener("markerFound", function(){
             var markerId = marker.id;
             console.log('markerFound', markerId);
             // Marker found
             document.getElementById("transpImage").src = 'images/icons/logo_qr.png';
             alert("Marker found: " + markerId);
-        })
-        m.addEventListener("markerLost", (e)=>{
+        });
+        m.addEventListener("markerLost", function{
             var markerId = marker.id;
             console.log('markerLost', markerId);
             // Marker lost
             document.getElementById("transpImage").src = 'images/icons/team-cube.png';
             alert("Marker found: " + markerId);
-        })
+        });
 
 
     </script>
