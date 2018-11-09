@@ -32,14 +32,14 @@
             var markerId = marker.id;
             console.log('markerFound', markerId);
             // Marker found
-            document.getElementById("markerEventTest").innerHTML = "Marker found: " + markerId;
+            document.getElementById("transpImage").src = 'images/icons/logo_qr.png';
             alert("Marker found: " + markerId);
         })
         m.addEventListener("markerLost", (e)=>{
             var markerId = marker.id;
             console.log('markerLost', markerId);
             // Marker lost
-            document.getElementById("transpImage").src = 'images/icons/logo_qr.png';
+            document.getElementById("transpImage").src = 'images/icons/team-cube.png';
             alert("Marker found: " + markerId);
         })
 
