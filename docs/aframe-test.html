@@ -31,26 +31,26 @@
 			<a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
        </a-marker> */
 
-	function addMarker() {
+		var addMarker = function() {
 
-	    var sceneEl = document.querySelector('a-scene');
-	    
-	    var markerEl = document.createElement('a-marker');
-	    markerEl.setAttribute("id", "amarkerID");
-	    markerEl.setAttribute("preset", "pattern");
-	    markerEl.setAttribute("type", "pattern");
-	    markerEl.setAttribute("url", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt");
-	    markerEl.setAttribute(registerevents, "");
-	    
-	    var imageEl = document.createElement('a-image'); 
-	    imageEl.setAttribute("position","0 1 0"); 
-	    imageEl.setAttribute(rotation", "-90 0 0");
-	    imageEl.setAttribute(width", "1");
-	    imageEl.setAttribute(height", "1");
-	    imageEl.setAttribute(src", "#transpImage");
-	    
-	    imageEl.appendChild(imageEl);
-		sceneEl.appendChild(markerEl);
+			var sceneEl = document.querySelector('a-scene');
+			
+			var markerEl = document.createElement('a-marker');
+			markerEl.setAttribute("id", "amarkerID");
+			markerEl.setAttribute("preset", "pattern");
+			markerEl.setAttribute("type", "pattern");
+			markerEl.setAttribute("url", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt");
+			markerEl.setAttribute(registerevents, "");
+			
+			var imageEl = document.createElement('a-image'); 
+			imageEl.setAttribute("position","0 1 0"); 
+			imageEl.setAttribute(rotation", "-90 0 0");
+			imageEl.setAttribute(width", "1");
+			imageEl.setAttribute(height", "1");
+			imageEl.setAttribute(src", "#transpImage");
+			
+			imageEl.appendChild(imageEl);
+			sceneEl.appendChild(markerEl);
 	}
 	/*
         AFRAME.registerComponent('do-something-once-loaded', {
@@ -75,7 +75,7 @@
 
     </script>
 </head>
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;' onLoad='addMarker()'>
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;' onload='addMarker()'>
     <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
         <p id="markerEventTest"></p>
 </div>
