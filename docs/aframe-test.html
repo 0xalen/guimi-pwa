@@ -5,6 +5,7 @@
 
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+    <script src="scripts/addMarker.js"></script>
     <script>
 	     AFRAME.registerComponent('registerevents', {
 		        init: function () {
@@ -31,27 +32,7 @@
 			<a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
        </a-marker> */
 
-		var addMarker = function() {
 
-			var sceneEl = document.querySelector('a-scene');
-			
-			var markerEl = document.createElement('a-marker');
-			markerEl.setAttribute("id", "amarkerID");
-			markerEl.setAttribute("preset", "pattern");
-			markerEl.setAttribute("type", "pattern");
-			markerEl.setAttribute("url", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt");
-			markerEl.setAttribute(registerevents, "");
-			
-			var imageEl = document.createElement('a-image'); 
-			imageEl.setAttribute("position","0 1 0"); 
-			imageEl.setAttribute(rotation", "-90 0 0");
-			imageEl.setAttribute(width", "1");
-			imageEl.setAttribute(height", "1");
-			imageEl.setAttribute(src", "#transpImage");
-			
-			imageEl.appendChild(imageEl);
-			sceneEl.appendChild(markerEl);
-	}
 	/*
         AFRAME.registerComponent('do-something-once-loaded', {
           init: function () {
