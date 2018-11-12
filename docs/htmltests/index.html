@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name=viewport" content="width=device-width, initial-scale=1.0">
+    <title>"GuIMI: Guía Interactiva del Museo de Informática"</title>
+    <link rel="stylesheet" type="text/css" href="styles/inline.css">
+    <link rel="stylesheet" type="text/css" href="styles/video-size.css">
+
+	<link rel="manifest" href="/manifest.json">
+	<!-- Incluir a-frame -->
+    <script type="text/javascript" src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+	<!-- Incluir arjs para a-frame -->
+	<script type="text/javascript" src="https://raw.githubusercontent.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.js"></script>
+	 <script>THREEXjs.Context.baseURL = 'https://github.com/jeromeetienne/ar.js/tree/master/three.js/'</script>
+</head>
+<body> <!-- style='margin : 0px; overflow: hidden;'> -->
+
+    <header class="header">
+      <h1 class="header__title">GuIMI</h1>
+      <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+    </header>
+    
+    <main class="main">       
+    	<video autoplay class="video"></video>
+        <script src="scripts/app.js" async></script>
+
+	        <!-- Define your 3d scene and enabled ar.js -->
+        <a-scene embedded arjs='trackingMethod: best;'>
+
+                <!-- Create a anchor to attach your augmented reality -->
+                <a-anchor hit-testing-enabled='true'>
+
+                        <!-- Add your augmented reality here -->
+                        <a-box position='0 0.5 0' material='opacity: 0.5; side:double; color:red;'>
+                                <a-torus-knot radius='0.26' radius-tubular='0.05'>
+                                        <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                                </a-torus-knot>
+                        </a-box>
+
+		        </a-anchor>
+		        <!-- Define a static camera -->
+		        <a-camera-static/>
+		</a-scene>
+
+    </main>
+
+    <div align="center">
+         <button type="button" onclick="document.getElementById('nombre').innerHTML = 'Guía Interactiva del Museo de Informática'">¿Qué es GuIMI?</button>
+        <p id="nombre">¿GuIMI?</p>
+    </div>
+
+   <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+
+</body>
+</html> 
