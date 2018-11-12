@@ -26,9 +26,33 @@
 		        }
 	        });
 
-        // Agregar elementos de A-FRAME mediante el API de DOM
-        var sceneEl = document.querySelector('a-scene')
+	// Agregar elementos de A-FRAME mediante el API de DOM
+    /* <a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
+			<a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
+       </a-marker> */
 
+	function addMarker() {
+
+	    var sceneEl = document.querySelector('a-scene');
+	    
+	    var markerEl = document.createElement('a-marker');
+	    markerEl.setAttribute("id", "amarkerID");
+	    markerEl.setAttribute("preset", "pattern");
+	    markerEl.setAttribute("type", "pattern");
+	    markerEl.setAttribute("url", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt");
+	    markerEl.setAttribute(registerevents, "");
+	    
+	    var imageEl = document.createElement('a-image'); 
+	    imageEl.setAttribute("position","0 1 0"); 
+	    imageEl.setAttribute(rotation", "-90 0 0");
+	    imageEl.setAttribute(width", "1");
+	    imageEl.setAttribute(height", "1");
+	    imageEl.setAttribute(src", "#transpImage");
+	    
+	    imageEl.appendChild(imageEl);
+		sceneEl.appendChild(markerEl);
+	}
+	/*
         AFRAME.registerComponent('do-something-once-loaded', {
           init: function () {
             console.log('MarkerLoaded');
@@ -46,7 +70,7 @@
             });
 
         sceneEl.appendChild(entityEl);
-
+		*/
         //entityEl.parentNode.removeChild(entityEl);
 
     </script>
@@ -69,10 +93,7 @@
 			    </a-box>
 		    </a-marker>
 
-            <!-- Custom marker
-	        <a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
-	            <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">
-            </a-marker> -->
+            <!-- Custom marker -->
 
 	        <a-marker type='barcode' value='5' id='marker-barcode-5'>
 			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
