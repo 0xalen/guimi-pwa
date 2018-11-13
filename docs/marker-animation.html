@@ -27,10 +27,10 @@
             <!-- Custom marker -->
             <a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
                <!-- <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage">-->
-               <a-triangle rotation="-90 0 0"></a-triangle>
+              <!-- <a-triangle rotation="-90 0 0"></a-triangle>-->
 
-                <a-cone position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
-                        <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+                <a-cone position='0 0.5 0' material='opacity: 0.5; side: double;color:red;' width="1" height="1">
+                        <a-animation attribute="rotation" to="0 360 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
                 </a-cone>
             </a-marker>
 
