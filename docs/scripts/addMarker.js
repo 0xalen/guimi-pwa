@@ -75,7 +75,7 @@ function addMarkerIndicator(markerID) {
     markerEl.insertAdjacentElement('beforeend', entityEl);
     
     var mat = document.createAttribute("material");
-    mat.value = "opacity:0.5; side:'double'; color:'red'";
+    mat.value = "opacity: 0.5; side: double; color: red";
     
     coneEl.setAttributeNode(mat );
     
