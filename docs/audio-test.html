@@ -10,12 +10,19 @@
 		<audio id="sound" src="audios/audio.mp3" preload="auto"></audio>
     </a-assets>
 	
-    <a-assets>
-        <img id="transpImage" src="images/icons/logo_qr.png">
-    </a-assets>
+
     <a-image position="0 1 0" rotation="-45 0 0" width="1" height="1" src="#transpImage"></a-image>
-    <a-marker-camera preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt"></a-marker-camera>
-    <a-entity sound="src: #sound" autoplay="true"></a-entity>
+    <a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
+    <!-- <a-triangle rotation="-90 0 0"></a-triangle>-->
+        <a-entity scale="0.1 0.2 0.2">                                                                                                                                                                 
+             <a-cone position='0 5 3' rotation='90 0 0' material='opacity: 0.5; side: double;color:red;width:0.01; height:10'>
+            </a-cone>
+        </a-entity>
+        
+        <a-entity sound="src: #sound" autoplay="true"></a-entity>
+    </a-marker>
+    
+    <a-entity camera></a-entity>
 </a-scene>
 </body>
 </html>
