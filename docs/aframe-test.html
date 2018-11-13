@@ -31,7 +31,7 @@
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
         <p id="markerEventTest"></p>
-</div>
+	</div>
         <p id="debugP">Agregar elementos de A-FRAME mediante el API de DOM</p>
         <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
             <a-assets>
@@ -51,6 +51,10 @@
 
             <a-entity camera></a-entity>
         </a-scene>
-        <script>addMarker()</script>
+        <script>addMarker("amarkerID", "https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt")</script>
+	<div id="divDebug">
+		
+	</div>
+	<script>debugMarker()</script>
 </body>
 </html>
