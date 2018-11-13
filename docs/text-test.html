@@ -1,0 +1,60 @@
+<!--
+GuIMI: Guía Interactiva del Museo de Informática (UNPA-UARG)
+Copyright (C) 2018 Franco Alejandro Trinidad
+                   María Luz Almada
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://0xalen.github.io/guimi/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"GuIMI: Realidad Aumentada"</title>
+
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+
+</head>
+<body>
+    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+        <!-- <a-scene embedded arjs="debugUIEnabled: false;"> -->
+        <!-- Content-->
+	    <a-assets>
+	        <img id="transpImage" src="visitante/images/icons/markerDetected.png">
+		</a-assets>
+		<a-image width="1" height="1" src="#transpImage">
+
+		<!-- Default marker -->
+        <a-marker preset="hiro" id='marker-hiro' registerevents>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+		        <a-torus-knot radius='0.26' radius-tubular='0.05'>
+		    	    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+			    </a-torus-knot>
+		    </a-box>
+        </a-marker>
+
+		<!-- Custom marker -->
+		<a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
+            <a-entity scale="2 2 2">                                                                                                                                                                 
+                <a-text value="Guía Interactiva del \nMuseo de informatica!" geometry="primitive:plane"></a-text>
+            </a-entity>		    
+        </a-marker>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
+</body>
+</html> 
