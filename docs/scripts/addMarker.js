@@ -26,10 +26,63 @@ function addMarker(markerID, pattURL) {
 
     //sceneEl.appendChild(markerEl);
     sceneEl.insertAdjacentElement('beforeend', markerEl);
-    document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
+    //document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
 
+	//addImage(markerID);
+	//addIndicator(markerID);
+	addMarkerIndicator(markerID);
+}
 
-	addImage(markerID);
+function addIndicator(markerID) {
+	markerID.innerHTML =
+	'<a-entity scale="0.1 0.2 0.2">\
+		<a-cone position="0 6 2" rotation="90 0 0" material="opacity: 0.5; side: double;color:red">\
+		</a-cone>\
+    </a-entity>';
+}
+
+function addMarkerIndicator(markerID) {
+    var markerEl = document.getElementById(markerID);
+	document.getElementById("debugP").innerHTML = markerEl.id;              /* DEBUG*/
+	
+	var entityEl = document.createElement('a-entity'); 
+	var scaleX = "0.1"; 
+	var scaleY = "0.2"; 
+	var scaleZ = "0.2";
+	var scale = document.createAttribute("scale"); 
+	scale.value = scaleX +  " " + scaleY + " " + scaleZ;
+	entityEl.setAttributeNode(scale);
+	
+	var coneEl = document.createElement('a-cone'); 
+	
+    var posX = "0";
+    var posY = "6";
+    var posZ = "2";
+    
+    var pos = document.createAttribute("position");
+    pos.value = posX +  " " + posY + " " + posZ;
+    coneEl.setAttributeNode(pos);
+    
+    
+    var rotX = "90";
+    var rotY = "0"; 
+    var rotZ = "0";
+    
+    var rot = document.createAttribute("rotation");
+    rot.value = rotX +  " " + rotY + " " + rotZ;
+    coneEl.setAttributeNode(rot);
+    
+    markerEl.insertAdjacentElement('beforeend', entityEl);
+    
+    var mat = document.createAttribute("material");
+    mat.value = "opacity:0.5; side:'double'; color:'red'";
+    
+    coneEl.setAttributeNode(mat );
+    
+    entityEl.insertAdjacentElement('beforeend', coneEl);
+    
+	//var debugT = 'entityEl.scale: ' + entityEl.scale + ' coneEl.position: ' + coneEl.position + ' coneEl.rotation: ' + coneEl.rotation;
+    //document.getElementById("debugP").innerHTML = debugT;              /* DEBUG*/    
 }
 
 function addImage(markerID) {
