@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 class="example">A heading with class="example"</h2>
+<p id="A1" class="example">A paragraph with class="example".</p> 
+<p id="A2" class="example">Another paragraph with class="example".</p> 
+<p id="A3" class="example"></p>
+
+<p id="debug"></p>
+
+<p>Click the button to add a background color to the first p element (index 0) in the document with class="example".</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p><strong>Note:</strong> The querySelectorAll() method is not supported in Internet Explorer 8 and earlier versions.</p>
+
+<script>
+function myFunction() {
+    var x = document.querySelectorAll("p");
+    //x[0].style.backgroundColor = "red";
+    //x[1].style.backgroundColor = "blue";
+    //x[2].innerHTML = "x[] array length: " + x.length;
+    var i;
+    for (i = 0; i < x.length; i++){ 
+        if (x[i].id == "A1") {
+            continue;
+        }
+    	x[i].setAttribute("class", x[i].id);
+        var debugT = x[i].id;
+    }
+    
+    //var debugT = "E";
+    document.getElementById("debug").innerHTML = debugT;
+}
+</script>
+
+</body>
+</html>
+

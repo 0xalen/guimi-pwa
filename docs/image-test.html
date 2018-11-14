@@ -6,29 +6,6 @@
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
     <script src="scripts/event.js"></script>
-    <script>
-        /*
-         AFRAME.registerComponent('registerevents', {
-                init: function () {
-                    var marker = this.el;
-                    marker.addEventListener('markerFound', function() {
-                        var markerId = marker.id;
-                        console.log('markerFound', markerId);
-                         // Marker found
-                        document.getElementById("markerEventTest").innerHTML = "Marker found: " + markerId;
-                        alert("Marker found: " + markerId);
-                    });
-                    marker.addEventListener('markerLost', function() {
-                        var markerId = marker.id;
-                        console.log('markerLost', markerId);
-                        // Marker lost
-                        document.getElementById("markerEventTest").innerHTML = "Marker Lost: " + markerId;
-                        alert("Marker found: " + markerId);
-                    });
-                }
-            });
-            */
-    </script>
 </head>
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
@@ -36,8 +13,7 @@
 </div>
     <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
         <a-assets>
-            <img id="transpImage" src="images/icons/team-cube.png">
-                
+            <img id="transpImage" src="images/icons/team-cube.png">               
         </a-assets>
         <a-image width="1" height="1" src="#transpImage">
 
@@ -52,11 +28,12 @@
             <!-- Custom marker -->
             <a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
                 <!-- IMAGE -->
-                <!-- <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="">-->
+                <a-image position="0 1 0" rotation="-90 0 0" width="1" height="1" src="#transpImage" visible="false">
+                
                 <!-- TEXT -->
-                <a-text value="GUIMI!!!"></a-text> 
+                <a-text value="GUIMI!!!" visible="false"></a-text> 
                     
-                <a-entity scale="0.1 0.2 0.2">                                                                                                                                                                 
+                <a-entity scale="0.1 0.2 0.2"> 
                     <a-cone position='0 6 2' rotation='90 0 0' material='opacity: 0.5; side: double;color:red'>
                     </a-cone>
                 </a-entity> 

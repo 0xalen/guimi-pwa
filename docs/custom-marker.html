@@ -1,0 +1,77 @@
+<!--
+GuIMI: Guía Interactiva del Museo de Informática (UNPA-UARG)
+Copyright (C) 2018 Franco Alejandro Trinidad
+                   María Luz Almada
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="canonical" href="https://0xalen.github.io/guimi/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"GuIMI: Guía Interactiva del Museo de Informática"</title>
+    <link rel="stylesheet" type="text/css" href="visitante/styles/inline.css">
+    <link rel="stylesheet" type="text/css" href="visitante/styles/guimi.css">
+
+	<link rel="manifest" href="manifest.json">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="GuIMI PWA">
+    <link rel="apple-touch-icon" href="visitante/images/logos/logo_guimi-192.png">
+    <meta name="msapplication-TileImage" content="visitante/images/logos/logo_guimi-192.png">
+    <meta name="msapplication-TileColor" content="#2657C0">
+
+
+</head>
+<body>
+
+    <header class="header">
+        <script src="visitante/scripts/sidenav.js"></script>
+        <span class="open-slide">
+            <a href="#" onclick="openMenu()">
+                <svg width="30" height="30">
+                    <path d="M0,5 30,5" stroke="#fff" stroke-width="3"/>
+                    <path d="M0,14 30,14" stroke="#fff" stroke-width="3"/>
+                    <path d="M0,23 30,23" stroke="#fff" stroke-width="3"/>
+                </svg>
+            </a>
+        </span>
+
+        <h1 class="header__title">GuIMI</h1>
+
+    </header>
+
+    <div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeMenu()">&times;</a>
+        <a href="#">Inicio</a>
+        <a href="#">Novedades</a>
+        <a href="#">Contacto</a>
+        <a href="#">Acerca del Museo</a>
+    </div>
+
+    <main class="main">
+        <embed class="scene" src="https://0xalen.github.io/guimi/ar-guimi.html" style="width:100%;height:100%;"></embed>
+        <!--<script src="visitante/scripts/app.js" async></script>-->
+    </main>
+
+    <div id="divDebug">
+		<p id="debugP"></p>
+        <!-- document.getElementById("debugP").innerHTML = ;              /* DEBUG*/-->
+	</div>
+</body>
+</html> 
