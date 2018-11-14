@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://0xalen.github.io/guimi/">
+ <!--   <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>"GuIMI: Options menu"</title>
+    <link rel="stylesheet" type="text/css" href="styles/inline.css">
+    <link rel="stylesheet" type="text/css" href="styles/guimi.css">
+
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+
+        <script src="OptionsScreen.js"></script>
+
+</head>
+<body>
+    <a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+		<!-- Default marker -->
+        <a-marker preset="hiro" id='marker-hiro' registerevents>
+            <a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+		        <a-torus-knot radius='0.26' radius-tubular='0.05'>
+		    	    <a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+			    </a-torus-knot>
+	    </a-box>
+        </a-marker>
+
+		<a-marker id="amarkerID" preset="pattern" type="pattern" url="https://raw.githubusercontent.com/0xalen/guimi/master/visitante/test/pattern/PA0001.patt" registerevents>
+            <a-entity scale="0.1 0.2 0.2">
+                <a-cone position='0 6 2' rotation='90 0 0' material='opacity: 0.5; side: double;color:red'>
+                </a-cone>
+            </a-entity>
+        </a-marker>
+
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
+	<main class="main"></main>
+        <script src="app.js" async></script>
+
+    </main>
+
+    <div id="optionsScreenID" class="options"></div>
+    <div id="contentScreenID" class="options"></div>
+</body>
+</html> 
