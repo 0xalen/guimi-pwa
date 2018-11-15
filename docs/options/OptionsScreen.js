@@ -40,6 +40,7 @@ function OptionsScreen(opt) {
         addSpan("optionsRow");
 
         addDiv("optionsRow", "column", "cImage");
+        addCounterBlock("cImage", imageCount);
         if (imageCount > 0) {
             addDivImage("cImage", "imageID", imgIcon, "Imagen");
         } else {
@@ -47,6 +48,7 @@ function OptionsScreen(opt) {
         }
 
         addDiv("optionsRow", "column", "cText");
+        addCounterBlock("cText", textCount);
         if (textCount > 0) {
             addDivImage("cText", "textID", txtIcon, "Texto");
         } else {
@@ -54,6 +56,7 @@ function OptionsScreen(opt) {
         }
 
         addDiv("optionsRow", "column", "cVideo");
+        addCounterBlock("cVideo", videoCount);
         if (videoCount > 0) {
             addDivImage("cVideo", "videoID", vidIcon, "Video");
         } else {
@@ -61,12 +64,12 @@ function OptionsScreen(opt) {
         }
 
         addDiv("optionsRow", "column", "cAudio");
+        addCounterBlock("cAudio", audioCount);
         if (audioCount > 0) {
             addDivImage("cAudio", "audioID", audIcon, "Audio");
         } else {
             addDivImage("cAudio", "audioID", unAudIcon, "Audio");
         }
-
     }
     var addDiv = function(parentDivID, divClass, newDivID) {
         var divEl = document.getElementById(parentDivID);
@@ -110,7 +113,26 @@ function OptionsScreen(opt) {
 
         divEl.insertAdjacentElement('beforeend', imageEl);
     }
+    var addCounterBlock = function(parentDivID, count) {
+        var divEl = document.getElementById(parentDivID);
 
+       // var textDivEl = document.createElement('div');
+
+        //var classAtt = document.createAttribute('class');
+        //classAtt.value = "counter";
+        //textDivEl.setAttributeNode(classAtt);
+
+        var h1El = document.createElement('h1');
+
+        var counterEl = document.createTextNode(count);
+
+        h1El.appendChild(counterEl);
+
+        //divEl.insertAdjacentElement('beforeend', textDivEl);
+
+        //textDivEl.insertAdjacentElement('beforeend', h1El);
+        divEl.insertAdjacentElement('beforeend', h1El);
+    }
     var addSpan = function(parentDivID) {
         var divEl = document.getElementById(parentDivID);
 
