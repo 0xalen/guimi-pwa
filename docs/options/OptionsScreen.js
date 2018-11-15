@@ -115,22 +115,12 @@ function OptionsScreen(opt) {
     }
     var addCounterBlock = function(parentDivID, count) {
         var divEl = document.getElementById(parentDivID);
-
-       // var textDivEl = document.createElement('div');
-
-        //var classAtt = document.createAttribute('class');
-        //classAtt.value = "counter";
-        //textDivEl.setAttributeNode(classAtt);
-
         var h1El = document.createElement('h1');
 
         var counterEl = document.createTextNode(count);
 
         h1El.appendChild(counterEl);
 
-        //divEl.insertAdjacentElement('beforeend', textDivEl);
-
-        //textDivEl.insertAdjacentElement('beforeend', h1El);
         divEl.insertAdjacentElement('beforeend', h1El);
     }
     var addSpan = function(parentDivID) {
