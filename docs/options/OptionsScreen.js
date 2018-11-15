@@ -14,6 +14,7 @@ function OptionsScreen(opt) {
     var unAudIcon = "images/icon_cont-audio_unselected.png";
 
     this.displayOptionsScreen = function() {
+        showOptions();
         openOptionsScreen();
     }
 
@@ -21,6 +22,15 @@ function OptionsScreen(opt) {
         var oScreenDiv = document.getElementById("optionsScreenID");
         console.log("Child to remove: " + oScreenDiv.childNodes[0]);        //DEBUG
         oScreenDiv.removeChild(oScreenDiv.childNodes[0]);
+        hideOptions();
+    }
+
+    var hideOptions = function() {
+    document.getElementById('optionsScreenID').style.display='none';
+    }
+
+    var showOptions = function() {
+        document.getElementById('optionsScreenID').style.display='block';
     }
 
     var openOptionsScreen = function() {
