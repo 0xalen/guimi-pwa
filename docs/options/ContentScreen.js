@@ -20,43 +20,36 @@ function ContentScreen() {
         document.getElementById('contentScreenID').style.display='block';
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     var openContentScreen = function() {
         var contentDiv = document.getElementById("contentScreenID");
-
-        addDiv("optionsScreenID", "row", "optionsRow");
+        addDiv("contentScreenID", "slideshow-container", "containerID");
+        /***/
         addSpan("optionsRow");
 
         addDiv("optionsRow", "column", "cImage");
 
         addDivImage("cImage", "imageID", imgIcon, "Imagen");
 
-        addDiv("optionsRow", "column", "cText");
-
-        addDivImage("cText", "textID", txtIcon, "Texto");
-
-        addDiv("optionsRow", "column", "cVideo");
-
-        addDivImage("cVideo", "videoID", vidIcon, "Video");
-
-
-        addDiv("optionsRow", "column", "cAudio");
-
-        addDivImage("cAudio", "audioID", audIcon, "Audio");
-
-
     }
+
+    <div id="contentScreenID" class="options" style="display:block">
+        <div id="containerID" class="slideshow-container">
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 3</div>
+              <img src="images/icon_cont-texto.png" style="width:100%">
+              <div class="text">Caption Text</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
     var addDiv = function(parentDivID, divClass, newDivID) {
         var divEl = document.getElementById(parentDivID);
 
@@ -72,8 +65,25 @@ function ContentScreen() {
 
         divEl.insertAdjacentElement('beforeend', newDivEl);
     }
-    var addDivImage = function(divID, imgID, imgSrc, imgAlt) {
-        var divEl = document.getElementById(divID);
+
+    var addDivText = function(parentDivID, divClass, textDiv) {
+        var divEl = document.getElementById(parentDivID);
+
+        var newDivEl = document.createElement('div');
+
+        var classAtt = document.createAttribute('class');
+        classAtt.value = divClass;
+        newDivEl.setAttributeNode(classAtt);
+
+        var numberTextEl = document.createTextNode(textDiv);
+        newDivEl.appendChild(numberTextEl);
+
+        divEl.insertAdjacentElement('beforeend', newDivEl);
+    }
+
+    /* <img src="images/icon_cont-texto.png" style="width:100%">*/
+    var addDivImage = function(parentDivID, imgID, imgSrc, imgAlt) {
+        var divEl = document.getElementById(parentDivID);
 
         var imageEl = document.createElement('img');
 
@@ -100,26 +110,6 @@ function ContentScreen() {
         divEl.insertAdjacentElement('beforeend', imageEl);
     }
 
-    var addSpan = function(parentDivID) {
-        var divEl = document.getElementById(parentDivID);
-
-        var spanEl = document.createElement('span');
-
-        var idAtt = document.createAttribute('id');
-        idAtt.value = "closeOptionsBtn";
-        spanEl.setAttributeNode(idAtt);
-
-        var classAtt = document.createAttribute('class');
-        classAtt.value = "btn-close";
-        spanEl.setAttributeNode(classAtt);
-
-        var onclickAtt = document.createAttribute('onclick');
-        onclickAtt.value = "";
-        spanEl.setAttributeNode(onclickAtt);
-
-        divEl.insertAdjacentElement('beforeend', spanEl);
-    }
-
     this.createEventListener = function() {
         document.getElementById("imageID").addEventListener("click", function() {
             console.log('Image content selected');
@@ -134,3 +124,5 @@ function ContentScreen() {
         });
     }
 }
+
+
