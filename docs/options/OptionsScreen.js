@@ -16,6 +16,7 @@ function OptionsScreen(opt) {
     this.displayOptionsScreen = function() {
         showOptions();
         openOptionsScreen();
+        createEventListeners();
     }
 
     var closeOptionsScreen = function() {
@@ -37,7 +38,7 @@ function OptionsScreen(opt) {
         var optionDiv = document.getElementById("optionsScreenID");
 
         addDiv("optionsScreenID", "row", "optionsRow");
-        addSpan("optionsRow");
+        addSpanClose("optionsRow");
 
         addDiv("optionsRow", "column", "cImage");
         addCounterBlock("cImage", imageCount);
@@ -123,13 +124,13 @@ function OptionsScreen(opt) {
 
         divEl.insertAdjacentElement('beforeend', h1El);
     }
-    var addSpan = function(parentDivID) {
+    var addSpanClose = function(parentDivID) {
         var divEl = document.getElementById(parentDivID);
 
         var spanEl = document.createElement('span');
 
         var idAtt = document.createAttribute('id');
-        idAtt.value = "closeOptionsBtn";
+        idAtt.value = "closeBtn";
         spanEl.setAttributeNode(idAtt);
 
         var classAtt = document.createAttribute('class');
@@ -140,10 +141,13 @@ function OptionsScreen(opt) {
         onclickAtt.value = "";
         spanEl.setAttributeNode(onclickAtt);
 
+        var closeBtnEl = document.createTextNode("&times;");
+        divEl.appendChild(closeBtnEl);
+
         divEl.insertAdjacentElement('beforeend', spanEl);
     }
 
-    this.createEventListeners = function() {
+    var createEventListeners = function() {
         if (imageCount > 0) {
             document.getElementById("imageID").addEventListener("click", function() {
                 console.log('Image content selected');
@@ -170,7 +174,7 @@ function OptionsScreen(opt) {
             });
         }
 
-        document.getElementById("closeOptionsBtn").addEventListener("click", function() {
+        document.getElementById("closeBtn").addEventListener("click", function() {
             console.log('Close menu');
             closeOptionsScreen();      //TEMP FOR DEBUG
         });

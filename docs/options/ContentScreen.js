@@ -1,8 +1,12 @@
-function ContentScreen() {
+function ContentScreen(cList) {
+    var contentList = cList;
+    var slideIndex = 1;
 
     this.displayContentScreen = function() {
         showGallery();
         openContentScreen();
+        createEventListeners();
+        showSlides(slideIndex);
     }
 
     var closeContentScreen = function() {
@@ -22,35 +26,40 @@ function ContentScreen() {
 
     var openContentScreen = function() {
         var contentDiv = document.getElementById("contentScreenID");
-        addDiv("contentScreenID", "slideshow-container", "containerID");
-        /***/
-        addSpan("optionsRow");
+        addDiv("contentScreenID", "slideshow-container", "containerID", " ");
+        addSpanClose("containerID");
+        var cCounter = 0;
+        var contentDivID = "contentDiv" + cCounter;
+        var imageID = "imageID" + cCounter;
+        console.log("cCounter: " + cCounter);
+        console.log("cList: " + contentList.length);
+        var counterText = cCounter + " / " + contentList.length;
+        for (cCounter = 0; cCounter < contentList.length; cCounter++) {
+            contentID = "content" + cCounter;
+            addDiv("containerID", "contentSlides fade", contentID, " ");
 
-        addDiv("optionsRow", "column", "cImage");
+            counterText = cCounter + " / " + contentList.length;
+            addDivText(contentID, "numbertext", counterText);
 
-        addDivImage("cImage", "imageID", imgIcon, "Imagen");
+            imageID = "imageID" + cCounter;
+            addDivImage(contentID, imageID, contentList[cCounter].getContentURL(),
+                        contentList[cCounter].getContentName());
 
+            addDivText(contentID, "text", contentList[cCounter].getContentName());
+        }
+        addA("containerID", "prev", '❮');
+        addA("containerID", "next", '❯');
+
+        addDiv("contentScreenID", " ", "dotID", "text-align:center");
+        cCounter = 0;
+        var dotID = "dotID" + cCounter;
+        for (cCounter = 0; cCounter < contentList.length; cCounter++) {
+            dotID = "dotID" + cCounter;
+            addSpan("dotID", dotID);
+        }
     }
 
-    <div id="contentScreenID" class="options" style="display:block">
-        <div id="containerID" class="slideshow-container">
-            <div class="mySlides fade">
-              <div class="numbertext">1 / 3</div>
-              <img src="images/icon_cont-texto.png" style="width:100%">
-              <div class="text">Caption Text</div>
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-    </div>
-
-    var addDiv = function(parentDivID, divClass, newDivID) {
+    var addDiv = function(parentDivID, divClass, newDivID, divStyle) {
         var divEl = document.getElementById(parentDivID);
 
         var newDivEl = document.createElement('div');
@@ -62,6 +71,10 @@ function ContentScreen() {
         var classAtt = document.createAttribute('class');
         classAtt.value = divClass;
         newDivEl.setAttributeNode(classAtt);
+
+        var styleAtt = document.createAttribute('style');
+        styleAtt.value = divStyle;
+        newDivEl.setAttributeNode(styleAtt);
 
         divEl.insertAdjacentElement('beforeend', newDivEl);
     }
@@ -81,7 +94,6 @@ function ContentScreen() {
         divEl.insertAdjacentElement('beforeend', newDivEl);
     }
 
-    /* <img src="images/icon_cont-texto.png" style="width:100%">*/
     var addDivImage = function(parentDivID, imgID, imgSrc, imgAlt) {
         var divEl = document.getElementById(parentDivID);
 
@@ -110,19 +122,126 @@ function ContentScreen() {
         divEl.insertAdjacentElement('beforeend', imageEl);
     }
 
-    this.createEventListener = function() {
-        document.getElementById("imageID").addEventListener("click", function() {
-            console.log('Image content selected');
-            closeOptionsScreen();      //TEMP FOR DEBUG
+    var addA = function(parentDivID, aClass, aText) {
+        var divEl = document.getElementById(parentDivID);
+
+        var aEl = document.createElement('a');
+
+        var idAtt = document.createAttribute('id');
+        idAtt.value = aClass;
+        aEl.setAttributeNode(idAtt);
+
+        var classAtt = document.createAttribute('class');
+        classAtt.value = aClass;
+        aEl.setAttributeNode(classAtt);
+
+        var onclickAtt = document.createAttribute('onclick');
+        onclickAtt.value = "";
+        aEl.setAttributeNode(onclickAtt);
+
+        var aTextEl = document.createTextNode(aText);
+        aEl.appendChild(aTextEl);
+
+        divEl.insertAdjacentElement('beforeend', aEl);
+    }
+
+    var addSpan = function(parentDivID, spanID) {
+        var divEl = document.getElementById(parentDivID);
+
+        var spanEl = document.createElement('span');
+
+        var idAtt = document.createAttribute('id');
+        idAtt.value = spanID;
+        spanEl.setAttributeNode(idAtt);
+
+        var classAtt = document.createAttribute('class');
+        classAtt.value = "dot";
+        spanEl.setAttributeNode(classAtt);
+
+        var onclickAtt = document.createAttribute('onclick');
+        onclickAtt.value = "";
+        spanEl.setAttributeNode(onclickAtt);
+
+        divEl.insertAdjacentElement('beforeend', spanEl);
+    }
+
+    var addSpanClose = function(parentDivID) {
+        var divEl = document.getElementById(parentDivID);
+
+        var spanEl = document.createElement('span');
+
+        var idAtt = document.createAttribute('id');
+        idAtt.value = "closeBtn";
+        spanEl.setAttributeNode(idAtt);
+
+        var classAtt = document.createAttribute('class');
+        classAtt.value = "btn-close";
+        spanEl.setAttributeNode(classAtt);
+
+        var onclickAtt = document.createAttribute('onclick');
+        onclickAtt.value = "";
+        spanEl.setAttributeNode(onclickAtt);
+
+        var closeBtnEl = document.createTextNode('×');
+        spanEl.appendChild(closeBtnEl);
+
+        divEl.insertAdjacentElement('beforeend', spanEl);
+    }
+
+    var createEventListeners = function() {
+        document.getElementById("prev").addEventListener("click", function() {
+            console.log('Previous content');
+            plusSlides(-1);      //TEMP FOR DEBUG
+        });
+        document.getElementById("next").addEventListener("click", function() {
+            console.log('Next content');
+            plusSlides(1);      //TEMP FOR DEBUG
         });
 
+        var cCounter = 0;
+        var dotID = "dotID" + cCounter;
+        for (cCounter = 0; cCounter < contentList.length; cCounter++) {
 
+            document.getElementById(dotID).addEventListener("click", function() {
+                console.log(dotID + ' content selected');
+                currentSlide(cCounter);
+            });
+        }
 
-        document.getElementById("closeOptionsBtn").addEventListener("click", function() {
+        document.getElementById("closeBtn").addEventListener("click", function() {
             console.log('Close menu');
-            closeOptionsScreen();      //TEMP FOR DEBUG
+            closeContentScreen();      //TEMP FOR DEBUG
         });
     }
+    /* SLIDER METHODS*/
+    var plusSlides = function(n) {
+        showSlides(slideIndex += n);
+    }
+
+    var currentSlide = function(n) {
+        showSlides(slideIndex = n);
+    }
+
+    var showSlides = function(n) {
+        var i;
+        var slides = document.getElementsByClassName("contentSlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+
 }
 
 
