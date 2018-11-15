@@ -129,7 +129,7 @@ body {
 }
 .contentSlides img {
   vertical-align: middle;
-  height: 30%;
+  height: 50%;
 }
 
 .slideshow-container {
@@ -175,7 +175,8 @@ body {
   bottom: 0%;
   width: 100%;
   text-align: left;
-  word-wrap: break-word;
+  /*word-wrap: break-word;*/
+  overflow: hidden;
 
 }
 
