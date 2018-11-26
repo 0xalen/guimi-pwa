@@ -1,0 +1,1 @@
+La válvula termoiónica, también llamada válvula electrónica, válvula de vacío, tubo de vacío o bulbo, es un componente electrónico utilizado para amplificar, conmutar, o modificar una señal eléctrica mediante el control del movimiento de los electrones en un espacio "vacío" a muy baja presión, o en presencia de gases especialmente seleccionados.
